@@ -84,7 +84,7 @@ inputTip.addEventListener("change", function () {
 
 // Add reset functionality if inputs have values
 inputs.forEach((input) => {
-  input.addEventListener("keydown", function (e) {
+  input.addEventListener("keyup", function (e) {
     if (e.keyCode >= 48 && e.keyCode <= 57) {
       resetBtn.classList.add("reset-btn--active");
     }
