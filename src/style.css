@@ -308,6 +308,10 @@ button {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
+
+  main > img {
+    margin-top: 3rem;
+  }
 }
 
 @media (max-width: 350px) {
