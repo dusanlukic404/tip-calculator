@@ -243,8 +243,8 @@ button {
 }
 
 .reset-btn--active {
-  color: var(--clr-very-dark-cyan) !important;
-  background-color: var(--clr-strong-cyan) !important;
+  color: var(--clr-very-dark-cyan);
+  background-color: var(--clr-strong-cyan);
   cursor: pointer;
 }
 
