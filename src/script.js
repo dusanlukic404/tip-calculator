@@ -28,7 +28,7 @@ const initCalc = function () {
 };
 
 const displayError = function () {
-  if (peopleNumber === 0 && bill > 0 && tipProcent > 0) {
+  if (peopleNumber === 0 || bill > 0 || tipProcent > 0) {
     errorMessage.classList.add("message--error");
     inputPeople.style.outline = "2px solid hsl(10, 73%, 59%)";
   } else {
@@ -73,9 +73,11 @@ inputBill.addEventListener("change", function () {
   calculateTip();
 });
 
-inputPeople.addEventListener("change", function () {
+inputPeople.addEventListener("input", function () {
   peopleNumber = +inputPeople.value;
   calculateTip();
+  errorMessage.classList.remove("message--error");
+  inputPeople.style.outline = "none";
 });
 
 inputTip.addEventListener("change", function () {
