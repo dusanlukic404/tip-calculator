@@ -24,15 +24,7 @@ const initCalc = function () {
   inputPeople.style.outline = "none";
   priceAmount.textContent = `$0.00`;
   priceTotal.textContent = `$0.00`;
-};
-
-const calculateTip = function () {
-  if (peopleNumber >= 1) {
-    let tipAmount = (bill * tipProcent) / peopleNumber;
-    let total = (bill * (tipProcent + 1)) / peopleNumber;
-    priceAmount.textContent = "$" + tipAmount.toFixed(2);
-    priceTotal.textContent = "$" + total.toFixed(2);
-  }
+  resetBtn.classList.remove("reset-btn--active");
 };
 
 const displayError = function () {
@@ -43,6 +35,15 @@ const displayError = function () {
     errorMessage.classList.remove("message--error");
     inputPeople.style.outline = "none";
   }
+};
+
+const calculateTip = function () {
+  if (peopleNumber >= 1) {
+    let tipAmount = (bill * tipProcent) / peopleNumber;
+    let total = (bill * (tipProcent + 1)) / peopleNumber;
+    priceAmount.textContent = "$" + tipAmount.toFixed(2);
+    priceTotal.textContent = "$" + total.toFixed(2);
+  } else displayError();
 };
 
 // Get procent of tip
@@ -93,24 +94,6 @@ inputs.forEach((input) => {
   });
 });
 
-inputs.forEach((input) => {
-  input.addEventListener("change", function () {
-    if (peopleNumber === 0 && bill > 0 && tipProcent > 0) {
-      errorMessage.classList.add("message--error");
-      inputPeople.style.outline = "2px solid hsl(10, 73%, 59%)";
-    } else {
-      errorMessage.classList.remove("message--error");
-      inputPeople.style.outline = "none";
-    }
-  });
-});
-
-resetBtn.addEventListener("click", function () {
-  initCalc();
-  resetBtn.classList.remove("reset-btn--active");
-});
-
-// Clear input fields on refresh
 window.onload = function () {
   initCalc();
 };
