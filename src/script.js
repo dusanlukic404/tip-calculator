@@ -96,6 +96,4 @@ inputs.forEach((input) => {
   });
 });
 
-window.onload = function () {
-  initCalc();
-};
+window.addEventListener("onload", initCalc);
