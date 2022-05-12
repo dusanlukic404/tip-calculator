@@ -68,7 +68,7 @@ tipContainer.addEventListener("click", function (e) {
   } else return;
 });
 
-inputBill.addEventListener("change", function () {
+inputBill.addEventListener("input", function () {
   bill = +inputBill.value;
   calculateTip();
 });
@@ -96,4 +96,4 @@ inputs.forEach((input) => {
   });
 });
 
-window.addEventListener("onload", initCalc);
+window.addEventListener("load", initCalc);
